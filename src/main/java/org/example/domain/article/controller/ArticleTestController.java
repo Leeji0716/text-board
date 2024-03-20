@@ -42,12 +42,10 @@ public class ArticleTestController {
             return;
         }
         Article article = findArticleById(inputId);
-
         if (article == null) {
             System.out.println("없는 게시물입니다.");
             return;
         }
-
         articleRepository.deleteArticle(article);
         System.out.printf("%d 게시물이 삭제되었습니다.\n", inputId);
     }
@@ -61,5 +59,25 @@ public class ArticleTestController {
             System.out.println("숫자를 입력해주세요.");
             return defaultValue;
         }
+    }
+
+    public void update() {
+        System.out.print("수정할 게시물 번호를 입력해주세요 : ");
+        int inputId = getParamAsInt(scan.nextLine(), WRONG_VALUE);
+        if(inputId == WRONG_VALUE) {
+            return;
+        }
+        Article article = findArticleById(inputId);
+        if (article == null) {
+            System.out.println("없는 게시물입니다.");
+            return;
+        }
+        System.out.print("새로운 제목을 입력해주세요 : ");
+        String newTitle = scan.nextLine();
+        System.out.print("새로운 내용을 입력해주세요 : ");
+        String newBody = scan.nextLine();
+
+        articleRepository.updateArticle(article, newTitle, newBody);
+        System.out.printf("%d번 게시물이 수정되었습니다.\n", inputId);
     }
 }

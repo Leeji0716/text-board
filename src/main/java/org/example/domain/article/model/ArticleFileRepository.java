@@ -104,4 +104,28 @@ public class ArticleFileRepository {
         }
         return data;
     }
+
+    public void updateArticle(Article article, String newTitle, String newBody) {
+        ObjectMapper mapper = new ObjectMapper();
+        try {
+            // JSON 파일을 읽어와서 ArrayList<Article> 객체로 변환
+            ArrayList<Article> data = mapper.readValue(new File("article.json"), new TypeReference<ArrayList<Article>>() {});
+            // article 객체를 업데이트
+            article.setTitle(newTitle);
+            article.setBody(newBody);
+
+            // data 리스트에서 해당 article을 찾아 업데이트
+            for (Article a : data) {
+                if (a.getId() == article.getId()) {
+                    a.setTitle(newTitle);
+                    a.setBody(newBody);
+                    break;
+                }
+            }
+            // 업데이트된 data를 다시 JSON 파일로 쓰기
+            mapper.writeValue(new File("article.json"), data);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
 }
