@@ -12,8 +12,18 @@ repositories {
 dependencies {
     testImplementation platform('org.junit:junit-bom:5.9.1')
     testImplementation 'org.junit.jupiter:junit-jupiter'
-}
 
+    // Jackson Databind
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.13.0'
+    // 필요에 따라 Jackson의 다른 모듈을 추가할 수 있습니다.
+    // 예: JSON 노드 트리 작업을 위한 Jackson Core
+    implementation 'com.fasterxml.jackson.core:jackson-core:2.13.0'
+
+//     예: JSON을 Java 객체로 변환하기 위한 Jackson Annotation
+    implementation 'com.fasterxml.jackson.core:jackson-annotations:2.13.0'
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.12.3'
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.13.0'
+}
 test {
     useJUnitPlatform()
 }

@@ -1,6 +1,9 @@
-package org.example.domain;
+package org.example.domain.article.controller;
 
 import org.example.base.CommonUtil;
+import org.example.domain.article.model.Article;
+import org.example.domain.article.model.ArticleRepository;
+import org.example.domain.article.view.ArticleView;
 
 import java.util.ArrayList;
 import java.util.Scanner;

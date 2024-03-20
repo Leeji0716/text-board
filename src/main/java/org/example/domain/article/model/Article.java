@@ -1,6 +1,4 @@
-package org.example.domain;
-
-import java.time.LocalDateTime;
+package org.example.domain.article.model;
 
 public class Article {
     private int id; // 번호

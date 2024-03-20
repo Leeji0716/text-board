@@ -1,4 +1,6 @@
-package org.example.domain;
+package org.example.domain.article.view;
+
+import org.example.domain.article.model.Article;
 
 import java.util.ArrayList;
 

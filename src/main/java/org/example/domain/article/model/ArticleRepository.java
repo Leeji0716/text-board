@@ -1,4 +1,4 @@
-package org.example.domain;
+package org.example.domain.article.model;
 
 import org.example.base.CommonUtil;
 
