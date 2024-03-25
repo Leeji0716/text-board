@@ -2,18 +2,18 @@ package org.example.domain.article.controller;
 
 import org.example.base.CommonUtil;
 import org.example.domain.article.model.Article;
-import org.example.domain.article.model.ArticleRepository;
+import org.example.domain.article.model.ArticleMySQLRepository;
+import org.example.domain.article.model.Repository;
 import org.example.domain.article.view.ArticleView;
 
 import java.util.ArrayList;
 import java.util.Scanner;
 
-// Model - Controller - View
 public class ArticleController { // Model + Controller
 
     CommonUtil commonUtil = new CommonUtil();
     ArticleView articleView = new ArticleView();
-    ArticleRepository articleRepository = new ArticleRepository();
+    Repository articleRepository = new ArticleMySQLRepository(); //메모리 DB, File DB
 
     Scanner scan = commonUtil.getScanner();
     int WRONG_VALUE = -1;
@@ -21,7 +21,7 @@ public class ArticleController { // Model + Controller
 
     public void search() {
         // 검색어를 입력
-        System.out.println("검색 키워드를 입력해주세요 :");
+        System.out.print("검색 키워드를 입력해주세요 : ");
         String keyword = scan.nextLine();
         ArrayList<Article> searchedList = articleRepository.findArticleByKeyword(keyword);
 

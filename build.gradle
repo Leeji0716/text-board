@@ -9,20 +9,29 @@ repositories {
     mavenCentral()
 }
 
-dependencies {
+dependencies { // 외부 라이브러리를 설정하는 부분 => 일정 포맷의 명령어를 적으면 다운로드부터 적용까지 해줌.
+    //다운받고자 하는 라이브러리의 이름
     testImplementation platform('org.junit:junit-bom:5.9.1')
     testImplementation 'org.junit.jupiter:junit-jupiter'
 
     // Jackson Databind
-    implementation 'com.fasterxml.jackson.core:jackson-databind:2.13.0'
+    // https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.17.0'
+
+
+    //     예: JSON을 Java 객체로 변환하기 위한 Jackson Annotation
+    implementation 'com.fasterxml.jackson.core:jackson-annotations:2.13.0'
+
     // 필요에 따라 Jackson의 다른 모듈을 추가할 수 있습니다.
     // 예: JSON 노드 트리 작업을 위한 Jackson Core
     implementation 'com.fasterxml.jackson.core:jackson-core:2.13.0'
 
-//     예: JSON을 Java 객체로 변환하기 위한 Jackson Annotation
-    implementation 'com.fasterxml.jackson.core:jackson-annotations:2.13.0'
-    implementation 'com.fasterxml.jackson.core:jackson-databind:2.12.3'
-    implementation 'com.fasterxml.jackson.core:jackson-databind:2.13.0'
+    // lombok Project
+    // https://mvnrepository.com/artifact/org.projectlombok/lombok
+    compileOnly 'org.projectlombok:lombok:1.18.30'
+
+    // https://mvnrepository.com/artifact/com.mysql/mysql-connector-j
+    implementation 'com.mysql:mysql-connector-j:8.3.0'
 }
 test {
     useJUnitPlatform()
